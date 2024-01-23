@@ -5,5 +5,5 @@
 Install package
 
 ```php
-composer require whitelistpro/bank-reconciliation:dev-main
+composer require whitelistpro/bank-reconciliation:dev@main
 ```
