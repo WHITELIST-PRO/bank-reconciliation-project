@@ -19,7 +19,6 @@ use WhitelistPRO\BankReconciliation\Http\Controllers\MasterController;
 /**
  * this web.php route file inside of bank package
  *
- * 'Samcom/Bank/Http/Controllers' this namespace use to call bank package controller
  */
 
 Route::group(["namespace"=> "WhitelistPRO\BankReconciliation\Http\Controllers"], function () {
