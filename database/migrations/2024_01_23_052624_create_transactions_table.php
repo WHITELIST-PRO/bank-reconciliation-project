@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('identifier');
             $table->string('type');
-            $table->dateTime('created_at');
+            $table->dateTime('date');
             $table->string('customer_code');
             $table->string('business_name');
             $table->string('fiscal_code');
@@ -23,10 +23,11 @@ return new class extends Migration
             $table->string('registration_number');
             $table->string('payment_method_type');
             $table->string('fb_platform_id');
-            $table->float('amount', 12,2);
-            $table->float('amount_usd', 12,2);
+            $table->string('amount');
+            $table->string('amount_usd');
             $table->string('transfer_reason');
             $table->string('lender_business_name');
+            $table->timestamps();
         });
     }
 

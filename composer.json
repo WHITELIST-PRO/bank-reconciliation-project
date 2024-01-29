@@ -1,5 +1,5 @@
 {
-    "name": "whitelistpro/bank-reconciliation",
+    "name": "whitelistpro/bankreconciliation",
     "description": "Laravel Bank Reconciliation Package..",
     "keywords": [
         "laravel",
@@ -9,13 +9,17 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "WhitelistPRO\\BankReconciliation\\": "src/",
-            "WhitelistPRO\\BankReconciliation\\Models\\": "src/models/"
-        }
+            "WhitelistPRO\\BankReconciliation\\": "src/"
+        },
+        "classmap": [
+            "src/models"
+        ]
     },
     "require": {
         "php": "^8.0|^8.1|^8.2",
-        "illuminate/support": "^8.0|^9.0|^10.0"
+        "illuminate/support": "^8.0|^9.0|^10.0",
+        "maatwebsite/excel": "^3.1",
+        "yajra/laravel-datatables": "10.0"
     },
     "extra": {
         "laravel": {

@@ -21,7 +21,7 @@ class Transaction extends Model
     protected $fillable = [
         'identifier',
         'type',
-        'created_at',
+        'date',
         'customer_code',
         'business_name',
         'fiscal_code',

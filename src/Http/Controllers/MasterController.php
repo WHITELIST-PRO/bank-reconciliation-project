@@ -14,4 +14,8 @@ class MasterController extends Controller
         return view('WhitelistPRO\BankReconciliation::welcome');
     }
 
+    public function dashboard() {
+        return view('WhitelistPRO\BankReconciliation::dashborad');
+    }
+
 }

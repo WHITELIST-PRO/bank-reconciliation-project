@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('sender_name');
             $table->string('sender_account');
             $table->text('payment_reference');
-            $table->float('amount_value', 12,2);
+            $table->string('amount_value');
             $table->string('amount_currency');
-            $table->float('fee_value', 12,2);
+            $table->string('fee_value');
             $table->string('fee_currency');
             $table->string('reference_number');
             $table->string('business_name');

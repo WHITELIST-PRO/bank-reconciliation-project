@@ -30,6 +30,21 @@ class MasterServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ ."/resources/view/","WhitelistPRO\BankReconciliation");
 
         /**
+         * publish view file's on project's resources folder
+         */
+        // $this->publishes([__DIR__.'/resources/view/' => resource_path('views/vendor/')]);
+
+        /**
+         * publish custom css file from bank package in to laravel project vendor folder
+         */
+        $this->publishes([__DIR__.'/resources/assets/css/' => public_path('vendor/bankreconciliation/css')], 'public');
+
+        /**
+         * publish custom javascript file from bank package in to laravel project vendor folder
+         */
+        $this->publishes([__DIR__.'/resources/assets/js/' => public_path('vendor/bankreconciliation/js')], 'public');
+
+        /**
          * publish config file on laravel config folder
          */
         $this->publishes([__DIR__.'/../config/bank-config.php' => config_path('bank-config.php')]);
