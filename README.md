@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/images/laravel-featured.png" width="200" alt="Laravel Logo"></a></p>
 
-Install package
+Install package (This command will work after setup https://packagist.org/)
 
 ```php
 composer require whitelistpro/bank-reconciliation:dev-main
