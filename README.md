@@ -19,7 +19,7 @@ composer require maatwebsite/excel:^3.1
 
 3. run command
 ```php
-php artisan vendor:publish
+php artisan vendor:publish --provider="WhitelistPRO\BankReconciliation\MasterServiceProvider"
 ```
 
 4. run command
