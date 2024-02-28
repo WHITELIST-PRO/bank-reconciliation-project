@@ -22,7 +22,7 @@ class BankDataImport implements ToModel, WithHeadingRow
             'sender_name' => Str::lower($row['sendername']),
             'sender_account' => Str::lower($row['senderaccount']),
             'payment_reference' => Str::lower($row['paymentreference']),
-            'amount_value' => Str::lower($row['amountvalue']),
+            'amount' => Str::lower($row['amountvalue']),
             'amount_currency' => Str::lower($row['amountcurrency']),
             'fee_value' => Str::lower($row['feevalue']),
             'fee_currency' => Str::lower($row['feecurrency']),

@@ -34,7 +34,9 @@ class BankDataController extends Controller
             $file = $request->file('file');
             $import = new BankDataImport();
             $demo = Excel::import($import, $file);
-            return redirect()->route('bank.list')->with('success', 'All good!');
+
+            session()->flash('success', 'Bank Data will be uploded successfully');
+            return redirect()->route('bank.list');
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
@@ -42,10 +44,15 @@ class BankDataController extends Controller
     }
 
     public function view($id) {
+
+        /**
+         * call table field dynamic
+         */
         $post = new BankData;
         $tableName = $post->getTable();
         $columns = Schema::getColumnListing($tableName);
-        $tran = BankData::find($id);
-        return view('WhitelistPRO\BankReconciliation::bankdata.view', compact('tran', 'columns'));
+
+        $bank = BankData::find($id);
+        return view('WhitelistPRO\BankReconciliation::bankdata.view', compact('bank', 'columns'));
     }
 }

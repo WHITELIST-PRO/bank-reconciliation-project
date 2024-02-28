@@ -1,6 +1,12 @@
 @extends('WhitelistPRO\BankReconciliation::welcome')
 
 @section('content')
+    <style>
+        th {
+            text-transform: uppercase
+        }
+    </style>
+
     <div class="pagetitle">
         <h1>Bank Data View</h1>
         <nav>
@@ -17,12 +23,14 @@
             <div class="card">
                 <div class="card-body p-3">
                     <table class="table table-bordered">
-                        @foreach ($columns as $value)
-                            <thead>
-                                <th>{{ $value }}</th>
-                                <td></td>
-                            </thead>
-                        @endforeach
+                        <thead>
+                            @foreach ($columns as $field)
+                                <tr>
+                                    <th>{{ str_replace('_', ' ', $field) }}</th>
+                                    <td>{{ $bank->$field }}</td>
+                                </tr>
+                            @endforeach
+                        </thead>
                     </table>
                 </div>
             </div>

@@ -34,7 +34,9 @@ class FileUploadController extends Controller
             $file = $request->file('file');
             $import = new TransactionImport();
             $demo = Excel::import($import, $file);
-            return redirect()->route('file.list')->with('success', 'All good!');
+
+            session()->flash('success', 'Transaction Data will be uploded successfully');
+            return redirect()->route('file.list');
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
@@ -42,9 +44,14 @@ class FileUploadController extends Controller
     }
 
     public function view($id) {
+
+        /**
+        * call table field dynamic
+        */
         $post = new Transaction;
         $tableName = $post->getTable();
         $columns = Schema::getColumnListing($tableName);
+
         $tran = Transaction::find($id);
         return view('WhitelistPRO\BankReconciliation::fileupload.view', compact('tran', 'columns'));
     }

@@ -25,26 +25,29 @@
 
     {{--  theme css link  --}}
     <link href="{{ asset('vendor/bankreconciliation/css/theme.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/bankreconciliation/css/custom.css') }}" rel="stylesheet">
 
-    <style>
-        .act {
-            color: #4154f1;
-            border-left: 2px solid #4154f1;
-            border-right: 2px solid #4154f1;
-        }
+    {{--  jquery 3.7.1 cdn link  --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-        .btn-primary {
-            background: #4153f1;
-        }
-
-        .col {
-            text-transform: uppercase;
-        }
-    </style>
+    {{--  bootstrap 5.0.2 cdn link  --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
 </head>
 
 <body>
+
+    <div class="loading-overlay">
+        <div class="loading-spinner">
+
+        </div>
+        <div class="loading-text">
+            Please wait, loading...
+        </div>
+    </div>
 
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -60,20 +63,7 @@
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
 
-                <li class="nav-item d-block d-lg-none">
-                    <a class="nav-link nav-icon search-bar-toggle " href="#">
-                        <i class="fa fa-search"></i>
-                    </a>
-                </li><!-- End Search Icon-->
-
                 <li class="nav-item dropdown pe-3">
-
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
-                        data-bs-toggle="dropdown">
-                        <img src="https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
-                            alt="Profile" class="rounded-circle" style="height: 50px; width: 35px">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
-                    </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
@@ -128,34 +118,12 @@
             </li><!-- End menu Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('reconciliation.list') }}">
+                <a class="nav-link collapsed {{ $routeName == 'reconciliation.list' ? 'act' : '' }}"
+                    href="{{ route('reconciliation.list') }}">
                     <i class="fa fa-compress"></i>
                     <span>Reconciliation</span>
                 </a>
             </li><!-- End menu Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                    <i class="fa fa-sitemap"></i><span>dropmenu</span><i class="fa fa-angle-down ms-auto"></i>
-                </a>
-                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle"></i><span>droplink 1</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle"></i><span>droplink 2</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-circle"></i><span>droplink 3</span>
-                        </a>
-                    </li>
-                </ul>
-            </li><!-- End Components Nav -->
 
         </ul>
 
@@ -181,16 +149,21 @@
 </body>
 
 {{--  bootstrap 5 javascript cdn link  --}}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
 
-{{--  jquery 3.7.1 cdn link  --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"
-    integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-{{--  theme javascript link  --}}
 <script src="{{ asset('vendor/bankreconciliation/js/theme.js') }}"></script>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+
+            // Fade in duration: 1 second
+            $(".content").fadeIn(1000);
+            $(".loading-overlay").fadeOut(1000);
+
+            // Fade out duration: 1 second
+            // Display loading overlay for 1 second
+        }, 1000);
+    });
+</script>
 
 </html>

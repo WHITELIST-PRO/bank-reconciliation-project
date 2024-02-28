@@ -15,6 +15,13 @@
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
+
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <div class="row">
             <div class="card">
                 <div class="card-body p-3">
@@ -33,7 +40,7 @@
                             @foreach ($transaction as $data)
                                 @php
                                     $date = new DateTime($data->date);
-                                    $date_formate = $date->format('d - m - Y');
+                                    $date_formate = $date->format('d / m / Y');
                                 @endphp
                                 <tr>
                                     <th scope="row">{{ $data->id }}</th>

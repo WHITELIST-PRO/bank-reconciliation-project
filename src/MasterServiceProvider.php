@@ -32,7 +32,6 @@ class MasterServiceProvider extends ServiceProvider
         /**
          * publish view file's on project's resources folder
          */
-        // $this->publishes([__DIR__.'/resources/view/' => resource_path('views/vendor/')]);
 
         /**
          * publish custom css file from bank package in to laravel project vendor folder
@@ -56,11 +55,15 @@ class MasterServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->publishes([__DIR__.'/../database/migrations/' => database_path('migrations/')], 'migrations');
 
+        $this->publishes([__DIR__.'/../database/seeders/' => database_path('seeders/')], 'seeders');
+
         /**
          * include bank package model
          */
         include __DIR__.'/Models/Transaction.php';
         include __DIR__.'/Models/BankData.php';
+        include __DIR__.'/Models/Configration.php';
+        include __DIR__.'/Models/ColorCombination.php';
 
     }
 }

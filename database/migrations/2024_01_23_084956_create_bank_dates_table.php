@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('sender_name');
             $table->string('sender_account');
             $table->text('payment_reference');
-            $table->string('amount_value');
+            $table->string('amount');
             $table->string('amount_currency');
             $table->string('fee_value');
             $table->string('fee_currency');

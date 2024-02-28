@@ -22,7 +22,7 @@ class BankData extends Model
         'sender_name',
         'sender_account',
         'payment_reference',
-        'amount_value',
+        'amount',
         'amount_currency',
         'fee_value',
         'fee_currency',
