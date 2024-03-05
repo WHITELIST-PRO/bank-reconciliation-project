@@ -56,14 +56,5 @@ class MasterServiceProvider extends ServiceProvider
         $this->publishes([__DIR__.'/../database/migrations/' => database_path('migrations/')], 'migrations');
 
         $this->publishes([__DIR__.'/../database/seeders/' => database_path('seeders/')], 'seeders');
-
-        /**
-         * include bank package model
-         */
-        include __DIR__.'/Models/Transaction.php';
-        include __DIR__.'/Models/BankData.php';
-        include __DIR__.'/Models/Configuration.php';
-        include __DIR__.'/Models/ColorCombination.php';
-
     }
 }
