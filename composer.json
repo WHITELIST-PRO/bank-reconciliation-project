@@ -10,10 +10,7 @@
     "autoload": {
         "psr-4": {
             "WhitelistPRO\\BankReconciliation\\": "src/"
-        },
-        "classmap": [
-            "src/models"
-        ]
+        }
     },
     "require": {
         "php": "^8.0|^8.1|^8.2",
