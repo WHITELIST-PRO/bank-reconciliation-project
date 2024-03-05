@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use WhitelistPRO\BankReconciliation\ColorCombination;
+use WhitelistPRO\BankReconciliation\Models\ColorCombination;
 
 class ColorSeeder extends Seeder
 {

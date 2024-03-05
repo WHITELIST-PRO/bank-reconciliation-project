@@ -5,7 +5,7 @@ namespace WhitelistPRO\BankReconciliation\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Configration extends Model
+class Configuration extends Model
 {
     use HasFactory;
 

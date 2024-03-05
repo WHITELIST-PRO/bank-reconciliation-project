@@ -270,7 +270,7 @@
                             </div>
 
                             <div class="form-group list">
-                                @foreach ($configration as $config)
+                                @foreach ($configuration as $config)
                                 <lable class="lab"><b>{{ $config->key }} : </b></lable>
                                 <input type="hidden" name="key[]" value="{{ $config->key }}">
                                 <div class="input-group mb-3 fi">
@@ -371,7 +371,7 @@
                 $('.percentage-input').each(function() {
                     $.ajax({
                         type: 'post',
-                        url: "{{ route('configration.store') }}",
+                        url: "{{ route('configuration.store') }}",
                         data: data,
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -768,7 +768,7 @@
                 var token = $("meta[name='csrf-token']").attr("content");
 
                 $.ajax({
-                    url: "/remove/configration/"+id,
+                    url: "/remove/configuration/"+id,
                     type: 'DELETE',
                     data: {
                         "id": id,

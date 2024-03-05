@@ -6,11 +6,6 @@ use WhitelistPRO\BankReconciliation\Http\Controllers\FileUploadController;
 use WhitelistPRO\BankReconciliation\Http\Controllers\MasterController;
 use WhitelistPRO\BankReconciliation\Http\Controllers\ReconciliationController;
 
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,13 +63,13 @@ Route::group(["namespace" => "WhitelistPRO\BankReconciliation\Http\Controllers"]
      *
      * return compare table for compare transaction data and bank data
      */
-    Route::group(['prefix' => 'reconciliation'], function() {
+    Route::group(['prefix' => 'reconciliation'], function () {
         Route::any('/list', [ReconciliationController::class, 'index'])->name('reconciliation.list');
         Route::get('/transaction/data/{id}', [ReconciliationController::class, 'transaction_data']);
         Route::post('/update', [ReconciliationController::class, 'update'])->name('transaction.update');
-        Route::post('/store/configration', [ReconciliationController::class, 'storeConfigration'])->name('configration.store');
+        Route::post('/store/configuration', [ReconciliationController::class, 'storeConfiguration'])->name('configuration.store');
     });
-    Route::delete('/remove/configration/{id}', [ReconciliationController::class, 'removeConfigration'])->name('configration.remove');
+    Route::delete('/remove/configuration/{id}', [ReconciliationController::class, 'removeConfiguration'])->name('configuration.remove');
 
     Route::get('/color/combination', [ReconciliationController::class, 'colorCombination_data']);
     Route::post('/store/color/combination', [ReconciliationController::class, 'storeColorCombination'])->name('combination.store');

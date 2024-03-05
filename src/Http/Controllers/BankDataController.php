@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Maatwebsite\Excel\Facades\Excel;
-use WhitelistPRO\BankReconciliation\BankData;
+use WhitelistPRO\BankReconciliation\Models\BankData;
 use WhitelistPRO\BankReconciliation\Http\Imports\BankDataImport;
 
 class BankDataController extends Controller
@@ -15,16 +15,19 @@ class BankDataController extends Controller
     * use 'WhitelistPRO\BankReconciliation::' namespace for call view file inside of bank package
     */
 
-    public function index() {
+    public function index()
+    {
         $bank = BankData::paginate(10);
         return view('WhitelistPRO\BankReconciliation::bankdata.list', compact('bank'));
     }
 
-    public function upload() {
+    public function upload()
+    {
         return view('WhitelistPRO\BankReconciliation::bankdata.upload');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
         $request->validate([
             'file' => 'required|mimes:xlsx'
@@ -43,7 +46,8 @@ class BankDataController extends Controller
 
     }
 
-    public function view($id) {
+    public function view($id)
+    {
 
         /**
          * call table field dynamic

@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use WhitelistPRO\BankReconciliation\BankData;
+use WhitelistPRO\BankReconciliation\Models\BankData;
 
 class BankDataImport implements ToModel, WithHeadingRow
 {

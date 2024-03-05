@@ -5,7 +5,7 @@ namespace WhitelistPRO\BankReconciliation\Http\Imports;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
-use WhitelistPRO\BankReconciliation\Transaction;
+use WhitelistPRO\BankReconciliation\Models\Transaction;
 
 class TransactionImport implements ToModel, WithHeadingRow
 {

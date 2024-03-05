@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Maatwebsite\Excel\Facades\Excel;
 use WhitelistPRO\BankReconciliation\Http\Imports\TransactionImport;
-use WhitelistPRO\BankReconciliation\Transaction;
+use WhitelistPRO\BankReconciliation\Models\Transaction;
 
 class FileUploadController extends Controller
 {
@@ -15,16 +15,19 @@ class FileUploadController extends Controller
     * use 'WhitelistPRO\BankReconciliation::' namespace for call view file inside of bank package
     */
 
-    public function index() {
+    public function index()
+    {
         $transaction = Transaction::paginate(10);
         return view('WhitelistPRO\BankReconciliation::fileupload.list', compact('transaction'));
     }
 
-    public function upload() {
+    public function upload()
+    {
         return view('WhitelistPRO\BankReconciliation::fileupload.upload');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
         $request->validate([
             'file' => 'required|mimes:xlsx'
@@ -43,7 +46,8 @@ class FileUploadController extends Controller
 
     }
 
-    public function view($id) {
+    public function view($id)
+    {
 
         /**
         * call table field dynamic

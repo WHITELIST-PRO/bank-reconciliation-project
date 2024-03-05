@@ -6,14 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use WhitelistPRO\BankReconciliation\BankData;
-use WhitelistPRO\BankReconciliation\ColorCombination;
-use WhitelistPRO\BankReconciliation\Configration;
-use WhitelistPRO\BankReconciliation\Transaction;
+use WhitelistPRO\BankReconciliation\Models\BankData;
+use WhitelistPRO\BankReconciliation\Models\ColorCombination;
+use WhitelistPRO\BankReconciliation\Models\Configuration;
+use WhitelistPRO\BankReconciliation\Models\Transaction;
 
 class ReconciliationController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $post = new Transaction;
         $tableName = $post->getTable();
         $transactionColumns = Schema::getColumnListing($tableName);
@@ -31,13 +32,14 @@ class ReconciliationController extends Controller
 
         $bank = BankData::get();
         $transaction = Transaction::get();
-        $configration = Configration::get();
+        $configuration = Configuration::get();
         $combination = ColorCombination::get();
 
-        return view('WhitelistPRO\BankReconciliation::reconciliation.index', compact('transaction', 'bank', 'configration', 'combination', 'filteredTransactionColumns', 'filteredBankColumns'));
+        return view('WhitelistPRO\BankReconciliation::reconciliation.index', compact('transaction', 'bank', 'configuration', 'combination', 'filteredTransactionColumns', 'filteredBankColumns'));
     }
 
-    public function transaction_data($id) {
+    public function transaction_data($id)
+    {
 
         /**
          * find data with use of passing id
@@ -48,7 +50,8 @@ class ReconciliationController extends Controller
         return response()->json($tran);
     }
 
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $tran = Transaction::find($request->id);
         /**
          * update fatch data
@@ -57,12 +60,13 @@ class ReconciliationController extends Controller
         return redirect()->back()->with('transaction data updated successfully');
     }
 
-    public function storeConfigration(Request $request) {
+    public function storeConfiguration(Request $request)
+    {
 
         $datas = $request->all();
 
         foreach($datas['key'] as $key => $data) {
-            Configration::updateOrCreate(
+            Configuration::updateOrCreate(
                 [
                     'key' => $data
                 ],
@@ -72,16 +76,18 @@ class ReconciliationController extends Controller
             );
         }
 
-        return response()->json(['message' => 'configration store successfully']);
+        return response()->json(['message' => 'configuration store successfully']);
     }
 
-    public function removeConfigration($id) {
+    public function removeConfiguration($id)
+    {
 
-        Configration::find($id)->delete();
-        return response()->json(['message' => 'configration remove successfully']);
+        Configuration::find($id)->delete();
+        return response()->json(['message' => 'configuration remove successfully']);
     }
 
-    public function storeColorCombination(Request $request) {
+    public function storeColorCombination(Request $request)
+    {
 
         ColorCombination::updateOrCreate(
             [
@@ -94,7 +100,8 @@ class ReconciliationController extends Controller
                 'complete_matching_select' => $request->complete_matching_select,
                 'partial_matching' => $request->partial_matching,
                 'partial_matching_select' => $request->partial_matching_select,
-            ]);
+            ]
+        );
 
         return response()->json(['message' => 'color combination updated successfully']);
     }

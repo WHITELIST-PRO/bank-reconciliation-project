@@ -6,9 +6,9 @@ use Illuminate\Support\ServiceProvider;
 
 class MasterServiceProvider extends ServiceProvider
 {
-     /**
-     * Register any application services.
-     */
+    /**
+    * Register any application services.
+    */
     public function register(): void
     {
         //
@@ -27,7 +27,7 @@ class MasterServiceProvider extends ServiceProvider
         /**
          * load view from bank package's view folder inside of resources
          */
-        $this->loadViewsFrom(__DIR__ ."/resources/view/","WhitelistPRO\BankReconciliation");
+        $this->loadViewsFrom(__DIR__ ."/resources/view/", "WhitelistPRO\BankReconciliation");
 
         /**
          * publish view file's on project's resources folder
@@ -62,7 +62,7 @@ class MasterServiceProvider extends ServiceProvider
          */
         include __DIR__.'/Models/Transaction.php';
         include __DIR__.'/Models/BankData.php';
-        include __DIR__.'/Models/Configration.php';
+        include __DIR__.'/Models/Configuration.php';
         include __DIR__.'/Models/ColorCombination.php';
 
     }
