@@ -1,13 +1,13 @@
 <?php
 
-namespace WhitelistPRO\BankReconciliation;
+namespace WhitelistPRO\BankReconciliation\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-    /**
-     * transactions table's model
-     */
+/**
+ * transactions table's model
+ */
 
 class Transaction extends Model
 {
